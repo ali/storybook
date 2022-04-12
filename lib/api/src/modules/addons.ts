@@ -103,8 +103,8 @@ export const init: ModuleFn = ({ provider, store, fullAPI }) => {
     getPanels: () => api.getElements(types.PANEL),
     getStoryPanels: () => {
       const allPanels = api.getPanels();
-      const { storyId } = store.getState();
-      const story = fullAPI.getData(storyId);
+      const { storyId, refId } = store.getState();
+      const story = fullAPI.getData(storyId, refId);
 
       if (!allPanels || !story || !isStory(story)) {
         return allPanels;
